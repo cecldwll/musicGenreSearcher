@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Finder</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>musicGenreSelector</title>
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Logo</div>
-        <nav>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="music-finder">
-            <div class="record-container">
-                <div class="record"></div>
-                <div class="genre-selector">
-                    <label for="genres">Select Genre</label>
-                    <select id="genres">
-                        <option value="">Choose a Genre</option>
-                        <!-- Add options here dynamically with JavaScript -->
-                    </select>
-                </div>
-            </div>
-            
-            <div class="song-info hidden">
-                <h2>Genre: <span id="genre-title"></span></h2>
-                <p id="song-details">Lorem ipsum dolor sit amet et delectus...</p>
-                <button id="refresh-btn">Refresh</button>
-                <button id="more-songs-btn">More songs from this genre</button>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="footer-logo">Logo</div>
-        <address>
-            <p>Address: 420 Doran Way</p>
-            <p>Summoner's Rift, OH 42069</p>
-        </address>
-    </footer>
-    <script src="js/main.js"></script>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="images/icon.png" alt="Logo" class="logo">
+    <h1>musicGenreSelector</h1>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="record-container">
+      <img src="images/hero-spin.png" alt="Spinning Record" class="record">
+      <div class="dropdown">
+        <label for="genre">Select Genre:</label>
+        <select id="genre" onchange="showSongInfo()">
+          <option value="">--Select Genre--</option>
+          <option value="Rock">Rock</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Hip-Hop">Hip-Hop</option>
+          <option value="Pop">Pop</option>
+          <option value="Classical">Classical</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="song-info hidden" id="songInfo">
+      <h2>Song Title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus.</p>
+      <button class="refresh-button">Refresh</button>
+      <button class="more-button" onclick="goToGenrePage()">More Songs from This Genre</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/icon.png" alt="Logo" class="footer-logo-img">
+      <address>101 E Viking St, Rexburg, ID 83460</address>
+    </div>
+    </div>
+    <p>&copy; 2024 Caitlyn Caldwell.</p>
+  </footer>
+
+  <script>
+    function showSongInfo() {
+      document.getElementById("songInfo").classList.remove("hidden");
+    }
+    function goToGenrePage() {
+      const genre = document.getElementById("genre").value;
+      window.location.href = `genre.html?genre=${genre}`;
+    }
+  </script>
 </body>
 </html>

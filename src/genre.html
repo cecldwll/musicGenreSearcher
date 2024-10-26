@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>musicGenreSelector - Genre</title>
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="images/icon.png" alt="Logo" class="logo">
+    <h1>musicGenreSelector</h1>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="genre-content">
+    <h2 id="genreTitle">Genre: Rock</h2>
+    <ul class="song-list">
+      <li>
+        <h3>Song 1 Title</h3>
+        <audio controls src="audio/song1.mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+      <li>
+        <h3>Song 2 Title</h3>
+        <audio controls src="audio/song2.mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+      <li>
+        <h3>Song 3 Title</h3>
+        <audio controls src="audio/song3.mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+      <li>
+        <h3>Song 4 Title</h3>
+        <audio controls src="audio/song4.mp3">
+          Your browser does not support the audio element.
+        </audio>
+      </li>
+    </ul>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/icon.png" alt="Logo" class="footer-logo-img">
+      <address>101 E Viking St, Rexburg, ID 83460</address>
+    </div>
+    </div>
+    <p>&copy; 2024 Caitlyn Caldwell.</p>
+  </footer>
+
+  <script>
+    // Get genre from URL and update page title
+    const urlParams = new URLSearchParams(window.location.search);
+    const genre = urlParams.get("genre");
+    document.getElementById("genreTitle").textContent = `Genre: ${genre}`;
+  </script>
+</body>
+</html>
