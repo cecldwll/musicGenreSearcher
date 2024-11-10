@@ -3,6 +3,8 @@
  * Copyright (c) 2008-2010, Felix Bruns <felixbruns@web.de>
  *
  */
+import { md5 } from './lastfm.api.md5.js';
+
 
 function LastFM(options){
 	/* Set default values for required options. */
