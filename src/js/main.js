@@ -1,3 +1,4 @@
+import LastFM from './lastfm.api.js';
 
  // Get genre from URL and update page title
 const urlParams = new URLSearchParams(window.location.search);

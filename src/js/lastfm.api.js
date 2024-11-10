@@ -845,3 +845,5 @@ function LastFM(options){
 		}
 	};
 }
+
+export default LastFM;
