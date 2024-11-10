@@ -176,3 +176,6 @@ body {
     width: 100%;
   }
   
+  #genreInfo a {
+    color: #F4C95D;
+  }

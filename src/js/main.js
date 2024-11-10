@@ -1,24 +1,31 @@
-document.getElementById('genres').addEventListener('change', function() {
-    // Trigger slide effect by adding a class
-    document.querySelector('.record-container').classList.add('slide-left');
-    document.querySelector('.song-info').classList.add('show');
-    
-    // Fetch genre info from API and display
-    const genre = this.value;
-    document.getElementById('genre-title').innerText = genre;
 
-    // Call function to load song details from API
-    loadSongDetails(genre);
+ // Get genre from URL and update page title
+const urlParams = new URLSearchParams(window.location.search);
+const genre = urlParams.get("genre");
+document.getElementById("genreTitle").textContent = `Genre: ${genre}`;
+
+const lastfm = new LastFM({apiKey: import.meta.env.VITE_LASTFM_API_KEY, apiSecret: import.meta.env.VITE_LASTFM_API_SECRET, apiUrl: 'https://ws.audioscrobbler.com/2.0/'});
+lastfm.tag.getInfo({ tag: genre }, {
+    success: function(data) {
+        const genreInfo = data.tag;
+        const genreDescription = genreInfo.wiki.summary;
+        document.getElementById("genreInfo").innerHTML = genreDescription;
+
+    }
 });
 
-document.getElementById('refresh-btn').addEventListener('click', function() {
-    // Refresh song details from the API
-    const genre = document.getElementById('genre-title').innerText;
-    loadSongDetails(genre);
-});
-
-function loadSongDetails(genre) {
-    // Placeholder for fetching data from Deezer API
-    // Update #song-details with song information
-    document.getElementById('song-details').innerText = "New song details for genre: " + genre;
-}
+lastfm.tag.getTopTracks({ tag: genre }, {
+    success: function(data) {
+        const topTracks = data.tracks.track;
+        const songList = document.querySelector('.song-list');
+        topTracks.forEach(function(track) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <h3>${track.name}</h3>
+                <p>${track.artist.name}</p>
+                <hr>
+            `;
+            songList.appendChild(listItem);
+        });
+    }
+})
