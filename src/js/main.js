@@ -4,7 +4,12 @@ const urlParams = new URLSearchParams(window.location.search);
 const genre = urlParams.get("genre");
 document.getElementById("genreTitle").textContent = `Genre: ${genre}`;
 
-const lastfm = new LastFM({apiKey: import.meta.env.VITE_LASTFM_API_KEY, apiSecret: import.meta.env.VITE_LASTFM_API_SECRET, apiUrl: 'https://ws.audioscrobbler.com/2.0/'});
+const lastfm = new LastFM({
+    apiKey: import.meta.env.VITE_LASTFM_API_KEY, 
+    apiSecret: import.meta.env.VITE_LASTFM_API_SECRET, 
+    apiUrl: 'https://ws.audioscrobbler.com/2.0/',
+    cache: undefined});
+
 lastfm.tag.getInfo({ tag: genre }, {
     success: function(data) {
         const genreInfo = data.tag;
