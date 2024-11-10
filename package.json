@@ -2,7 +2,7 @@
   "name": "mgs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "vite",
     "build": "vite build --emptyOutDir",
