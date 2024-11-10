@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lastfm": "^0.9.4",
     "vite": "^5.3.2"
   }
 }
