@@ -25,12 +25,16 @@
         <label for="genre">Select Genre:</label>
         <select id="genre" onchange="showSongInfo()">
           <option value="">--Select Genre--</option>
-          <option value="Rock">Rock</option>
-          <option value="Jazz">Jazz</option>
-          <option value="Hip-Hop">Hip-Hop</option>
-          <option value="Pop">Pop</option>
+          <option value="Alternative">Alternative</option>
+          <option value="Blues">Blues</option>
           <option value="Classical">Classical</option>
           <option value="Electronic">Electronic</option>
+          <option value="Hip-Hop">Hip-Hop</option>
+          <option value="Indie">Indie</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Rock">Rock</option>
+          <option value="RNB">RNB</option>
+          <option value="Pop">Pop</option>
         </select>
       </div>
     </div>
@@ -53,8 +57,8 @@
     <p>&copy; 2024 Caitlyn Caldwell.</p>
   </footer>
 
-  <script>
-    function showSongInfo() {
+  <!-- <script>
+  function showSongInfo() {
     document.getElementById("songInfo").classList.remove("hidden");
   }
 
@@ -62,10 +66,10 @@
       const genre = document.getElementById("genre").value;
       window.location.href = `genre.html?genre=${genre}`;
   }
-  </script>
-  <script type="module" src="js/lastfm.api.md5.js"></script>
-  <script type="module" src="js/lastfm.api.js"></script>
-  <script type="module" src="js/main.js"></script>
+  </script> -->
+  <script type="module" src="js/lastfm.api.md5.js" defer></script>
+  <script type="module" src="js/lastfm.api.js" defer></script>
+  <script type="module" src="js/main.js" defer></script>
   
   
 </body>
