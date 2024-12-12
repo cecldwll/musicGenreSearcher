@@ -131,3 +131,52 @@ function setupGenrePage(lastfm) {
     }
   });
 }
+
+// Form validation and local storage setup
+document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Get form values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Validate form inputs
+  if (!name || !email || !message) {
+    alert("All fields are required.");
+    return;
+  }
+
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  // Save feedback to localStorage
+  const feedback = { name, email, message };
+  const feedbackList = JSON.parse(localStorage.getItem("feedback")) || [];
+  feedbackList.push(feedback);
+  localStorage.setItem("feedback", JSON.stringify(feedbackList));
+
+  // Confirm submission and reset form
+  alert("Thank you for your feedback!");
+  event.target.reset();
+});
+
+// Save last selected genre
+const genreSelect = document.getElementById("genre");
+genreSelect.addEventListener("change", () => {
+  const selectedGenre = genreSelect.value;
+  if (selectedGenre) {
+    localStorage.setItem("lastSelectedGenre", selectedGenre);
+  }
+});
+
+// Prepopulate the dropdown with the saved genre
+document.addEventListener("DOMContentLoaded", () => {
+  const savedGenre = localStorage.getItem("lastSelectedGenre");
+  if (savedGenre) {
+    genreSelect.value = savedGenre;
+    showSongInfo(); // Automatically show song info for saved genre
+  }
+});

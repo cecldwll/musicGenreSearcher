@@ -19,34 +19,50 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="record-container">
-      <img src="images/hero-spin.png" alt="Spinning Record" class="record">
-      <div class="dropdown">
-        <label for="genre">Select Genre:</label>
-        <select id="genre" onchange="showSongInfo()">
-          <option value="">--Select Genre--</option>
-          <option value="Alternative">Alternative</option>
-          <option value="Blues">Blues</option>
-          <option value="Classical">Classical</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Hip-Hop">Hip-Hop</option>
-          <option value="Indie">Indie</option>
-          <option value="Jazz">Jazz</option>
-          <option value="Rock">Rock</option>
-          <option value="RNB">RNB</option>
-          <option value="Pop">Pop</option>
-        </select>
+    <div class="content-row">
+      <div class="record-container">
+        <img src="images/hero-spin.png" alt="Spinning Record" class="record">
+        <div class="dropdown">
+          <label for="genre">Select Genre:</label>
+          <select id="genre" onchange="showSongInfo()">
+            <option value="">--Select Genre--</option>
+            <option value="Alternative">Alternative</option>
+            <option value="Blues">Blues</option>
+            <option value="Classical">Classical</option>
+            <option value="Electronic">Electronic</option>
+            <option value="Hip-Hop">Hip-Hop</option>
+            <option value="Indie">Indie</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Rock">Rock</option>
+            <option value="RNB">RNB</option>
+            <option value="Pop">Pop</option>
+          </select>
+        </div>
+      </div>
+      <div class="song-info hidden" id="songInfo">
+        <h2>Song Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus.</p>
+        <button class="refresh-button">Refresh</button>
+        <button class="more-button" onclick="goToGenrePage()">More Songs from This Genre</button>
       </div>
     </div>
-
-    <div class="song-info hidden" id="songInfo">
-      <h2>Song Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus.</p>
-      <button class="refresh-button">Refresh</button>
-      <button class="more-button" onclick="goToGenrePage()">More Songs from This Genre</button>
-    </div>
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <form id="feedbackForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   </main>
-
+  
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
