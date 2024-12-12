@@ -77,6 +77,11 @@ body {
   color: #E7E393;
 }
 
+.song-info a:link, .song-info a:visited {
+  color: #759AAB;
+  text-decoration: underline;
+}
+
 main button {
   background-color: #A03B49;
   color: #E7E393;
